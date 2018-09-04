@@ -1,0 +1,232 @@
+/**********************************************************
+ * noktu.css
+ *
+ * This file defines all of the Noktu player elements.
+ *
+ * M. Nealon, 2018.
+ */
+
+ 
+/* The main player element - all of the other player
+ * elements are inside this container.
+ */ 
+.noktu							{
+	position:					absolute;
+	
+	top:						2%;
+	left:						2%;
+	width:						50%;
+	height:						96%;
+	
+	font-family:				"Lucida Console", Lucida, monospace;
+	
+	box-sizing:					border-box;
+}
+
+	/* Base element class - all of the child player
+	 * elements use this class.
+	 */
+	.noktu-el						{
+		position:					absolute;
+			
+		width:						100%;
+		
+		color:						#FFF;
+		background:					#000;
+		
+		box-sizing:					border-box;
+	}
+	
+	/* Player header element - shows the scrolling marquee
+	 * when a track is playing. See the ../app/DeSade.js
+	 * file for more.
+	 */
+	.noktu-header					{
+		padding-left:				6px;
+		font-size:					10px;
+		line-height:				24px;
+	}
+			
+		.de-sade					{
+			position:				absolute;
+			
+			top:					0%;
+			left:					0%;
+			width:					auto;
+			height:					100%;
+			
+			white-space:			nowrap;
+
+			box-sizing:				border-box;
+			
+			padding:				0px 4px;
+			
+			color:					#FFF;
+			background:				none;
+			
+			overflow:				hidden;
+		}
+		
+			/* Thes are used to style the text in the
+			 * marquee.
+			 *
+			 * See the format string definition in the
+			 * ../objects/objNoktuConfig.js script.
+			 */
+			.marquis-track-el			{
+				display:				inline;
+				
+				margin:					0px;
+				padding:				0px;
+				
+				font-weight:			bold;
+			}
+			
+			.marquis-track-name			{
+				color:					#0C1;
+			}
+			
+			.marquis-track-artist		{
+				color:					#0C1;
+			}
+			
+			.marquis-youtube-link		{
+				cursor:					pointer;
+				color:					#E01;
+			}
+			
+			.marquis-track-link			{
+				cursor:					pointer;
+				color:					#08E;
+			}
+
+		
+	/* The playlist element - this is a padded contain, the
+	 * noktu-playlist-inner contains the actual tracks.
+	 */
+	.noktu-playlist					{
+		padding:					6px;
+	}
+	
+		.noktu-playlist-inner			{
+			background:					#021;
+			
+			margin:						0px;
+			padding:					0px;
+			
+			overflow-x:					hidden;
+			overflow-y:					auto;
+			
+			color:						#FFF;
+		}
+		
+			/* Track element - this contains a number of
+			 * smaller child elements (5 in total)
+			 */
+			.noktu-track					{
+				z-index:					100;
+				
+				cursor:						pointer;
+				
+				position:					relative;
+				float:						left;
+				
+				margin:						0px 0px 2px 0px;
+				padding:					0px 6px;
+				
+				background:					none;
+				
+				height:						9px;
+				line-height:				9px;
+				
+				font-size:					9px;
+				font-weight:				bold;
+				
+				opacity:					0.95;
+			}
+			
+			/* The 5 child elements that make up a track
+			 * element in the playlist.
+			 */
+			.noktu-track-no					{
+				z-index:					5;
+				width:						15%;
+			}
+			.noktu-track-artist				{
+				z-index:					6;
+				width:						25%;
+			}
+			.noktu-track-name				{
+				z-index:					7;
+				width:						30%;
+			}
+			.noktu-track-elapsed			{
+				z-index:					8;
+				width:						15%;
+				text-align:					center;
+			}
+			.noktu-track-length				{
+				z-index:					9;
+				width:						15%;
+				text-align:					right;
+			}
+		
+		
+	/* The actions element - as stated before, this contains
+	 * the repeat, loop and random options.
+	 */
+	.noktu-actions					{
+		display:					block;
+	}
+		
+	/* The controls element - contains the prev, play, stop,
+	 * next and pause controls.
+	 */
+	.noktu-controls					{
+		display:					block;
+	}
+		
+		.noktu-el-action				{
+			position:					relative;
+			
+			background:					#FFF;
+			
+			width:						20px;
+			height:						20px;
+			
+			cursor:						pointer;
+		}
+		
+		.noktu-action					{
+			float:						right;
+			margin-right:				6px;
+		}
+		
+			/* The track seeker range element is in the
+			 * action element.
+			 */
+			.noktu-seeker					{
+				width:						50%;
+				
+				margin-left:				12px;
+				
+				background:					#021;
+			}
+			
+		
+		.noktu-control					{
+			float:						left;
+		}
+		
+			/* The volume control is inside the
+			 * control element.
+			 */
+			.noktu-volume					{
+				float:						right;
+				width:						72px;
+				
+				margin-right:				6px;
+				
+				background:					#000;
+			}
+			

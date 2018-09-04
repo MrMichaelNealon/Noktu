@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	
+		<meta charset="utf-8">
+		
+		<link rel="Stylesheet" type="text/css" href="styles/common.css">
+		<link rel="Stylesheet" type="text/css" href="styles/noktu.css">
+		
+		<title>
+			Noktu Audio Player
+		</title>		
+		
+		<meta content="True" name="HandheldFriendly">	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="viewport" content="width=device-width">
+		
+		<script src="plugins/jquery-1.11.0.js"></script>	
+		<script src="plugins/jquery-colour.js"></script>
+		
+		<script src="objects/objNoktuPlaylist.js"></script>
+		<script src="objects/objNoktuConfig.js"></script>
+		
+		<script src="app/DeSade.js"></script>
+		<script src="app/NoktuModel.js"></script>
+		<script src="app/NoktuViews.js"></script>
+		<script src="app/NoktuController.js"></script>
+		
+	</head>
+	
+	<body>
+	
+		<div id="outer">
+			<div id="inner">
+			</div>
+		</div>
+	
+		<script>
+			$(document).ready(function() {
+				// All that's needed is to create a new instance
+				// of the controller, passing the config and
+				// playlist as parameters.
+				//
+				var	ctr = new NoktuController(objNoktuConfig, objPlaylist);
+			});
+		</script>
+	</body>
+
+</html>
+
