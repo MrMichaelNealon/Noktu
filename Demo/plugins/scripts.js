@@ -58,7 +58,7 @@ $(document).ready(function(){
 	var	line_count = 0;
 	
 	var	text_effect = null;
-	var	text_color = null;
+	var	text_color = "white";
 	
 	
 	// showText()
@@ -80,23 +80,15 @@ $(document).ready(function(){
 				new_effect = effects[Math.floor(Math.random() * effects.length)];
 			text_effect = new_effect;
 		}
-		
-		// Select a random color for the #text element.
+
+		// Make sure we don't use the same color
+		// twice in a row.
 		//
-		if (text_color === null)
-			text_color = colors[Math.floor(Math.random() * colors.length)];
-		else {
-			// Make sure we don't use the same color
-			// twice in a row.
-			//
-			var new_color = text_color;
-			while (new_color === text_color)
-				new_color = colors[Math.floor(Math.random() * colors.length)];
-			text_color = new_color;
-		}
-		
-	//	console.log("text_color = " + text_color + "text_effect = " + text_effect);
-	
+		var new_color = text_color;
+		while (new_color === text_color)
+			new_color = colors[Math.floor(Math.random() * colors.length)];
+		text_color = new_color;
+
 		$("#text").toggle(text_effect, { times: 3 }, "slow" );
 		$("#text").css("color", text_color);
 		
