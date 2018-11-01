@@ -1,3 +1,4 @@
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 // Text to be displayed line by line...
 //
