@@ -28,11 +28,10 @@ var	colors = [
 // random for each individual line of text.
 //			
 var	effects = [
-	"blind",
 	"bounce",
 	"shake",
 	"puff",
-	"pulsate"
+	"explode"
 ];
 
 var	fonts = [
@@ -74,7 +73,7 @@ $(document).ready(function(){
 			text_effect = new_effect;
 		}
 
-		console.log("Effect type = " + text_effect);
+		console.log("Toggle type = " + text_effect);
 		$("#text").toggle(text_effect, {}, "slow");
 		
 		if (line_count >= text.length) {
@@ -91,16 +90,15 @@ $(document).ready(function(){
 	}
 	
 	
-	function randomiseTextPos() {		
-		// Random text width between 25 and 50%
-		//
-		var	r_width = (Math.floor(Math.random() * 25) + 25);
-		
+	function randomiseTextPos() {
 		// Need the height and width of the text so
 		// that we can select random y and x co-ordinates
 		//
-		var	text_width = (window.innerWidth / 100) * r_width;
+		var	text_width = parseInt($("#text").css("width").replace('px', ''));
 		var	text_height = parseInt($("#text").css("height").replace('px', ''));
+			
+		console.log("Text width = " + text_width);
+		console.log("Text height = " + text_height);
 			
 		// The text will appear in the upper-1/2 of the
 		// display to prevent clashing with other elements
@@ -119,31 +117,29 @@ $(document).ready(function(){
 			r_font = new_font;
 		}
 		
-		//if (x_pos < 48) x_pos += 48;
-		//if ((x_pos + (48 + text_width)) >= window.innerWidth) x_pos -= 48;
+		if (x_pos < 48) x_pos += 48;
+		if ((x_pos + (48 + text_width)) >= window.innerWidth) x_pos -= 48;
 		
-		// Decide font weight, 1 is normal, 0 is bold.
+		console.log("y_pos == " + y_pos);
+		console.log("x_pos == " + x_pos);
+		
 		if (Math.floor(Math.random() * 2))
 			var	weight = "normal";
 		else 
 			var	weight = "bold";
-	
-		if (Math.floor(Math.random() * 2))
-			var	style = "italic";
-		else
-			var	style = "normal";
 		
-		$("#text-el").css({
-			"margin": 0,
+		// Random text width between 25 and 50%
+		//
+		var	r_width = (Math.floor(Math.random() * 25) + 25);
+		
+		$("#text").css({
 			"font-weight": weight,
-			"font-style": style,
 			"font-family": r_font,
 			"width": r_width.toString() + "%",
-			"height": "auto",
 			"top": y_pos.toString() + "px",
 			"left": x_pos.toString() + "px"
 		});
-	
+		
 		showText();
 	}
 	
