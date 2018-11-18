@@ -74,7 +74,6 @@ $(document).ready(function(){
 			text_effect = new_effect;
 		}
 
-		console.log("Effect type = " + text_effect);
 		$("#text").toggle(text_effect, {}, "slow");
 		
 		if (line_count >= text.length) {
