@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="Stylesheet" type="text/css" href="main.css">
+        <title>
+            Github API
+        </title>
+        <script src="git-api.js"></script>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="repo-modal">
+                <div id="modal-header" class="modal-header">
+                    <div id="modal-title" class="modal-el">
+                        &nbsp;
+                    </div>
+                    <div title="Close this window" id="modal-close" class="modal-el">
+                        X
+                    </div>
+                </div>
+                <div id="modal-inner" class="modal-el">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="header">
+				<div id="title">
+				</div>
+				<div id="loader">
+				</div>
+			</div>
+        </div>
+
+        <script>
+            var git_user = "MrMichaelNealon";
+            
+			document.getElementById("title").innerHTML = git_user;
+			document.getElementById("loader").innerHTML = "Loading repos...";
+			
+            if (! fetchRepos(git_user, showRepos)) {
+                 throw new Error("The GitAPI.fetchRepos() method expects parameters!");
+            }
+			
+            var modal_el = document.getElementById('modal-close')
+            
+            modal_el.addEventListener("click", () => {
+                document.getElementById('repo-modal').style.display = "none";
+            });
+        </script>
+    </body>
+</html>
