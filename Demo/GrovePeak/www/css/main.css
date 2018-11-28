@@ -1,0 +1,268 @@
+/**********************************************************
+ * main.scss
+ *
+ * Defines some basic elements and classes. Also imports
+ * bunch of other .scss files.
+ *
+ * M. Nealon, 2018.
+ */
+/**********************************************************
+ * Colour definitions.
+ */
+/**********************************************************
+ * Generic, boilerplate stuff...
+ */
+*,
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+/* Main/outer wrapper, this is the first child element
+ * in the <body>
+ */
+#outer {
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%; }
+
+/* Inner wrapper, this is the first child element
+ * inside the #outer element, it contains all other
+ * relative (non-fixed) elements.
+ */
+#inner {
+  position: absolute;
+  float: left;
+  z-index: 2;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: #122f4e; }
+
+#overlay {
+  position: fixed;
+  z-index: 40;
+  display: none;
+  background: #122f4e;
+  opacity: 0.01;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%; }
+
+/**********************************************************
+ * Imports.
+ */
+/**********************************************************
+ * header.scss
+ *
+ * Defined here is the header element and it's children
+ * elements - the title logo (top-left) and the nav element
+ * (top-right).
+ *
+ * M. Nealon, 2018.
+ */
+/**********************************************************
+ * Sizes and dimensions
+ */
+/**********************************************************
+ * The header is a fixed, transparent element that is
+ * the parent container for the logo image (#title-logo)
+ * and the navigation menu system (#title-nav).
+ */
+#header {
+  z-index: 50;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 22.5vh;
+  background-color: rgba(20, 20, 34, 0);
+  color: #FFF; }
+
+/**********************************************************
+ * Extension for header elements.
+ */
+#header-logo, #header-image, #header-nav, #header-toggle-nav {
+  position: absolute;
+  top: 0%;
+  height: 22.5vh;
+  box-sizing: border-box; }
+
+/**********************************************************
+ * This is where the title logo image is displayed.
+ */
+#header-logo {
+  z-index: 11;
+  left: 0%;
+  width: 22.5vh; }
+
+#header-image {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: #CCC; }
+
+/**********************************************************
+ * This is where the navigation menu system is shown.
+ */
+#header-nav {
+  z-index: 50;
+  right: 0%;
+  width: 45vh; }
+
+#header-toggle-nav {
+  z-index: 51;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 10%;
+  height: 20%;
+  background: none; }
+
+.header-nav-option {
+  z-index: 52;
+  display: inline-block;
+  position: absolute;
+  height: 50%;
+  width: 100%; }
+
+.header-nav-option a {
+  cursor: pointer;
+  width: auto;
+  margin: 0;
+  padding: 0px 0px 0px 2px;
+  text-align: left;
+  font-size: 1.75vh;
+  line-height: 3.5vh; }
+
+/**********************************************************
+ * footer.scss
+ *
+ * Footer element is defined here-in. Like the header
+ * it's a fixed-position element, always visible at the
+ * bottom of the page.
+ *
+ * M. Nealon, 2018.
+ */
+/**********************************************************
+ * Sizes and dimensions
+ */
+#footer {
+  z-index: 30;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 20vh;
+  border-top: 1px solid #1E90FF;
+  background-color: #122f4e;
+  color: #FFF; }
+
+#footer-contact {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: auto;
+  height: 60%;
+  margin-left: 24px; }
+
+#footer-contact-header {
+  position: absolute;
+  height: auto;
+  color: #1E90FF; }
+
+/**********************************************************
+ * content.scss
+ *
+ * Defines the #content element, this is where the actual
+ * text content is displayed.
+ *
+ * This file also defined font types, styling for common
+ * tags like h*, p and a elements.
+ *
+ * M. Nealon, 2018.
+ */
+#content {
+  z-index: 20;
+  position: relative;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: auto;
+  min-height: 80vh;
+  box-sizing: border-box;
+  padding: 22.5vh 12px 0px 12px;
+  margin-bottom: 20vh;
+  background: #122f4e;
+  color: #FFF; }
+
+#content-header {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  color: #FFF;
+  font-size: 6vh;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #1E90FF; }
+
+#content-landscape {
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: auto; }
+
+#content-inner {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0px 12px; }
+
+.content-section {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background: none;
+  color: #FFF; }
+
+.content-data {
+  font-size: 14px;
+  margin: 12px 0px 24px 0px; }
+
+h1 {
+  font-size: 4vh;
+  margin-top: 12px;
+  color: #1E90FF; }
+
+/**********************************************************
+ */
+@media (min-width: 768px) {
+  #content {
+    padding-top: 11vh; }
+  #content-inner {
+    padding: 0 12px 0px 12px;
+    margin-left: 22.5vh;
+    margin-right: 45vh;
+    width: auto; }
+  #footer-contact {
+    margin-left: 22.5vh;
+    padding: 0px 12px; }
+  /*
+        #content-inner {
+            margin-left: $header-height;
+            margin-right: ($header-height * 2);
+            width: auto;
+            padding: 0px 12px;
+        }*/ }

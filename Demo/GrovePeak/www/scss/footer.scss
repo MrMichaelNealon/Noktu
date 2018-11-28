@@ -1,0 +1,44 @@
+/**********************************************************
+ * footer.scss
+ *
+ * Footer element is defined here-in. Like the header
+ * it's a fixed-position element, always visible at the
+ * bottom of the page.
+ *
+ * M. Nealon, 2018.
+ */
+
+
+/**********************************************************
+ * Sizes and dimensions
+ */
+ $footer-height: 20vh;
+
+
+ #footer {
+     z-index: 30;
+
+     position: fixed;
+
+     bottom: 0px; left: 0px;
+     width: 100%; height: $footer-height;
+
+     border-top: 1px solid #1E90FF;
+
+     background-color: $primary-bg;
+     color: #FFF;
+ }
+
+    #footer-contact {
+        position: absolute;
+        top: 20%; left: 0;
+        width: auto; height: 60%;
+        margin-left: 24px;
+    }
+
+        #footer-contact-header {
+            position: absolute;
+            height: auto;
+            color: #1E90FF;
+        }
+

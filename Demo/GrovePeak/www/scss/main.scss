@@ -1,0 +1,72 @@
+/**********************************************************
+ * main.scss
+ *
+ * Defines some basic elements and classes. Also imports
+ * bunch of other .scss files.
+ *
+ * M. Nealon, 2018.
+ */
+
+
+/**********************************************************
+ * Colour definitions.
+ */
+    $primary-fg: #FFF;
+    $primary-bg: rgb(18, 47, 78);
+
+
+/**********************************************************
+ * Generic, boilerplate stuff...
+ */
+    *,
+    body
+    {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+
+/* Main/outer wrapper, this is the first child element
+ * in the <body>
+ */
+        #outer {
+            z-index: 1;
+            position: absolute;
+            top: 0%; left: 0%;
+            width: 100%; height: 100%;
+        }
+
+
+/* Inner wrapper, this is the first child element
+ * inside the #outer element, it contains all other
+ * relative (non-fixed) elements.
+ */
+            #inner {
+                position: absolute;
+                float: left;
+                z-index: 2;
+                margin: 0px;
+                width: 100%; height: 100%; 
+                min-height: 100%;
+                background: $primary-bg;
+            }
+
+    #overlay {
+        position: fixed;
+        z-index: 40;
+        display: none;
+        background: $primary-bg;
+        opacity: 0.01;
+        top: 0%; left: 0%;
+        width: 100%; height: 100%;
+    }
+
+
+/**********************************************************
+ * Imports.
+ */
+    @import "header.scss";
+    @import "footer.scss";
+    @import "content.scss";
+    @import "responsive.scss";

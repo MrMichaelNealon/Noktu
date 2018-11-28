@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="utf-8">
+
+		<link rel="Stylesheet" type="text/css" href="css/main.css" />
+
+		<!-- This is used to scale the display on various devices. This makes -->
+		<!-- it a lot easier for to build a responsive layout that can adjust -->
+		<!-- to various devices. -->
+		<meta content="True" name="HandheldFriendly">	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="viewport" content="width=device-width">
+		
+		<!-- Include js plugins/API's. -->
+		<script src="plugins/jquery-1.11.0.js"></script>
+		<script src="plugins/jquery-colour.js"></script>
+
+		<script src="app/nav.js"></script>
+
+	</head>
+
+	<body>
+		<div id="outer">
+			
+		
+			<div id="inner">
+
+				<div id="content">
+					<div id="content-inner">
+					<div id="content-header">
+						GrovePeak
+					</div>
+
+					<div id="WhatWeDo" class="content-section">
+						<h1>WHAT WE DO</h1>
+						<p class="content-data">
+							Grovepeak provides placement services in Latin America to Private
+							Equity Fund Managers. We advise Fund Managers throughout the fundraising
+							process, including local regulatory compliance, leveraging over
+							10 years of experience raising capital in the region.
+						</p>
+					</div>
+	
+				</div>
+
+					<img 
+						src="./images/Landscape.png" 
+						width="100%" height="auto"
+						id="content-landscape"
+					/>
+				</div>
+			</div>
+
+			<div id="overlay">
+				&nbsp;
+			</div>
+
+<!-- Header element - this contains the logo and nav -->
+			<div id="header">
+
+<!-- Logo image - top-left of the page. -->
+				<div id="header-logo">
+					<img
+						id="header-image"
+						src="./images/Icon.png"
+						width="100%" height="100%"
+					/>
+				</div>
+
+<!-- Nav toggle/menu - top-right of the page. -->
+				<div id="header-nav">
+					<div id="header-toggle-nav">
+						&nbsp;
+					</div>
+				</div>
+			</div>
+
+			<div id="footer">
+				<div id="footer-contact">
+					<div id="footer-contact-header">CONTACT</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				buildNav();
+			});
+		</script>
+
+	</body>
+	
+</html>
+
+
+			
