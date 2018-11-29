@@ -23,38 +23,33 @@ const   Nav = (function() {
 
     let _options = [
         {
-            "id": "WhatWeDo-inner",
+            "id": "WhatWeDo",
             "title": "WHAT WE DO",
             "text": "WHAT WE DO",
-            "content": "content/WhatWeDo.html",
-            "state": "collapsed"
+            "section": "content/WhatWeDo.html"
         },
         {
-            "id": "WhoWeServe-inner",
+            "id": "WhoWeServe",
             "title": "WHO WE SERVE",
             "text": "WHO WE SERVE",
-            "content": "content/WhoWeServe.html",
-            "state": "collapsed"
+            "section": "content/WhoWeServe.html"
         },
         {
-            "id": "HowWeWork-inner",
+            "id": "HowWeWork",
             "title": "HOW WE WORK",
             "text": "HOW WE WORK",
-            "content": "content/HowWeWork.html",
-            "state": "collapsed"
+            "section": "content/HowWeWork.html"
         },
         {
-            "id": "WhatSetsUsApart-inner",
+            "id": "WhatSetsUsApart",
             "title": "WHAT SETS US APART",
             "text": "WHAT SETS US APART",
-            "content": "content/WhatSetsUsApart.html",
-            "state": "collapsed"
+            "section": "content/WhatSetsUsApart.html"
         }
     ];
 
 
     let state = NAV_STATE_COLLAPSED;
-    let locked = true;
 
 
 ///////////////////////////////////////////////////////////
@@ -73,18 +68,6 @@ const   Nav = (function() {
         //if (index >= 1)
         //    style += "border-top: none;";
 
-        if (option.state != "collapsed") {
-            $("#" + option.id + "-collapse").removeClass("expand");
-            $("#" + option.id + "-collapse").addClass("contract");
-            $("#" + option.id + "-collapse").attr("title", "Collapse");
-            $("#" + option.id).css({
-                "opacity": "0.99",
-                "display": "block"
-            });
-        }
-        else
-            $("#" + option.id + "-collapse").attr("title", "Expand");
-
         return '\
             <div id="nav-option-' + index.toString() + '" \
                 class="header-nav-option" \
@@ -97,8 +80,6 @@ const   Nav = (function() {
             >\
                 <a id="link-' + index.toString() + '" \
                     style="opacity: 0.01;" \
-                    link_index="' + index.toString() + '" \
-                    class="nav-click" \
                 >\
                     ' + option.text + '\
                 </a>\
@@ -162,7 +143,6 @@ const   Nav = (function() {
         state = NAV_STATE_EXPANDED;
 
         $("#overlay").css("display", "block");
-        $(".header-nav-option").css("color", "#FFF");
 
         $("#overlay").animate(
             { "opacity": "0.50" },
@@ -175,15 +155,13 @@ const   Nav = (function() {
             $("#nav-option-1, #nav-option-3").css("display", "block");
 
             setTimeout(function() {
-                _showLink("0", { "height": "100%" });
-                _showLink("1", { "height": "100%", "opacity": "0.99", "top": "100%" });
-                _showLink("2", { "height": "100%", "top": "200%" });
-                _showLink("3", { "height": "100%", "opacity": "0.99", "top": "300%" });
+                _showLink("0", { "height": "75%" });
+                _showLink("1", { "height": "75%", "opacity": "0.99", "top": "70%" });
+                _showLink("2", { "height": "75%", "top": "140%" });
+                _showLink("3", { "height": "75%", "opacity": "0.99", "top": "210%" });
 
                 _popLink(0, function() {
-                    $("#link-0").trigger("mouseover");
-                        locked = false;
-                        console.log("Links popped - unlocking");
+                    console.log("Links popped - unlocking");
                 });
             }, NAV_ANIMATION_PAUSE);
         });
@@ -191,8 +169,7 @@ const   Nav = (function() {
     };
 
 
-    let _hideMenu = function(_callback) {
-        locked = true;
+    let _hideMenu = function() {
         _unpopLink(3, function() {
             console.log("Unpopped links, hiding menu...");
 
@@ -216,8 +193,6 @@ const   Nav = (function() {
                             NAV_SHOWMENU_EASING,
                             function() {
                                 $("#overlay").css("display", "none");
-                                if (typeof(_callback) === "function")
-                                    _callback();
                                 console.log("Menu hidden!");
                             }
                         );
@@ -225,27 +200,6 @@ const   Nav = (function() {
                 }, NAV_ANIMATION_PAUSE);
             });
         });
-    };
-
-
-    let _scrollTo = function(index) {
-        var page_height = parseInt($("#content-inner").css("height").replace('px', ''));
-        
-        var section_top = parseInt($("#content-inner").css("padding-top").replace('px', ''));
-        section_top += parseInt($("#content-header").css("height").replace('px', ''));
-
-        //alert("PAdding top = " + section_top);
-        //section_top = 0;
-        for (var section = 0; section < index; section++) {
-            section_top += parseInt($("#" + _options[section].id).css("height").replace('px', ''));
-            section_top += 64;
-        }
-
-       // console.log(`page_height == ${page_height} section_top == ${section_top}`)
-        $("html, body").animate({
-            scrollTop: section_top
-        }, 500, "swing");
-
     };
 
 
@@ -260,103 +214,8 @@ const   Nav = (function() {
             if (state == NAV_STATE_EXPANDED) {
                 _hideMenu();
             }
-        });
-
-        $(".header-nav-option").on("mouseover", function() {
-            if (locked)
-                return;
-            $(this).stop().animate({
-                "color": "#1E90FF"
-            }, 500, "linear");
-        });
-        $(".header-nav-option").on("mouseleave", function() {
-            if (locked)
-                return;
-            $(this).stop().animate({
-                "color": "#FFF"
-            }, 500, "linear");
-        }); 
-        $(".nav-click").on("click", function() {
-            if (locked)
-                return;
-
-            var link_index = parseInt($(this).attr("link_index"));
-            //alert("Link " + _options[link_index].id);
-
-            _hideMenu(function() {
-                _scrollTo(link_index);
-            });
         })
     };
-
-;
-    let _populateSections = function() {
-        _options.forEach(function(option) {
-            $("#" + option.id).load(option.content);
-        });
-    };
-
-
-    let _refreshDisplay = function() {
-        var footer_height = parseInt($("#footer").css("height").replace('px', ''));
-        var image_height = parseInt($("#content-landscape").css("height").replace('px', ''));
-    
-        var content_padding = (footer_height + image_height);
-
-        $("#content-inner").css({
-            "padding-bottom": content_padding.toString() + "px"
-        });
-    //    $("#content-landscape").css({
-    //        "top": "+=4px"
-    //    });
-    };
-
-
-    let _initResponsive = function() {
-        $(window).on("load", function() {
-            _refreshDisplay();
-        });
-        $(window).on("resize", function() {
-            _refreshDisplay();
-        });
-    };
-
-
-    let _enableContentMouse = function() {
-        $(".h1-toggle").on("click", function() {
-            var index = parseInt($(this).attr("index_val"));
-            if (_options[index].state == "collapsed") {
-                $(this).removeClass("expand");
-                $(this).addClass("contract");
-                $(this).attr("title", "Collapse");
-                var expand_height = parseInt($("#" + _options[index].id).css("height").replace('px', ''));
-                $("#" + _options[index].id).css({
-                    "opacity": "0.01",
-                    "display": "block",
-                    "height": "0px"
-                });
-                $("#" + _options[index].id).animate({
-                    "height": expand_height.toString() + "px"
-                }, 500, "linear", function() {
-                    $("#" + _options[index].id).animate({
-                        "opacity": "0.99"
-                    }, 500, "linear", function() {
-                        _options[index].state = "expanded";
-                    });
-                });
-            }
-            else {
-                $(this).removeClass("contract");
-                $(this).addClass("expand");
-                $(this).attr("title", "Expand");
-                $("#" + _options[index].id).css({
-                    "opacity": "0.01",
-                    "display": "none"
-                });
-                _options[index].state = "collapsed";
-            }
-        });
-    }
 
 
 ///////////////////////////////////////////////////////////
@@ -375,10 +234,6 @@ const   Nav = (function() {
         });
 
         _enableNavMouse();
-        _populateSections();
-    //    _enableContentMouse();
-
-        _initResponsive();
     };
 
  

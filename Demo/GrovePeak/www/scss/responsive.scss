@@ -8,20 +8,30 @@
 
 
     @media (min-width: $screen-medium) {
-        #content {
-            padding-top: 11vh;
+    //    #content {
+    //        padding-top: 11vh;
+    //    }
+
+        .section-inner, #content-header, h1, hr {
+            padding: 0px 12px 0px 12px;
+            margin-left: $header-height;
+            margin-right: ($header-height * 2);
+            width: 50vw;
+            height: auto;
         }
 
         #content-inner {
-            padding: 0 12px 0px 12px;
-            margin-left: $header-height;
-            margin-right: ($header-height * 2);
-            width: auto;
+            padding-top: 10vh;
+            padding-right: 12vw;
         }
 
         #footer-contact {
             margin-left: $header-height;
-            padding: 0px 12px;
+            padding: 0px 24px;
+        }
+
+        #header-nav {
+            width: ($header-height * 2);
         }
 
         /*
@@ -31,5 +41,28 @@
             width: auto;
             padding: 0px 12px;
         }*/
+
+        .section-inner p { font-size: 20px; line-height: 22px; }
+
+        #dollar-image { display: block; width: 27%; right: 2.5%; top: 40%; } 
+        #arrow-image { display: block; width: 27%; right: 2.5%; }
+
+        #contact-el { display: block; }
+    }
+
+    @media (min-width: $screen-large) {
+        .section-inner, #content-header, h1, hr {
+            padding: 0px 12px 0px 12px;
+            margin-left: $header-height;
+            margin-right: ($header-height * 3);
+            width: 45vw;
+            height: auto;
+        }
+        .section-inner p { font-size: 20px; line-height: 22px; }
+
+        #dollar-image { display: block; width: 30%; right: 5%; top: 40%; } 
+        #arrow-image { display: block; width: 30%; right: 5%; }
+        
+        #contact-el { display: block; left: 64vw; }
     }
 

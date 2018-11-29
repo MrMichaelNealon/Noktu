@@ -34,14 +34,13 @@ body {
  * relative (non-fixed) elements.
  */
 #inner {
-  position: relative;
+  position: absolute;
   float: left;
   z-index: 2;
   margin: 0px;
   width: 100%;
-  height: auto;
+  height: 100%;
   min-height: 100%;
-  box-sizing: border-box;
   background: #122f4e; }
 
 #overlay {
@@ -58,14 +57,6 @@ body {
 /**********************************************************
  * Imports.
  */
-@font-face {
-  font-family: NationalRegular;
-  src: url(Fonts/National-Regular.otf); }
-
-@font-face {
-  font-family: NationalBook;
-  src: url(Fonts/National-Book.otf); }
-
 /**********************************************************
  * header.scss
  *
@@ -89,7 +80,7 @@ body {
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 20vh;
+  height: 22.5vh;
   background-color: rgba(20, 20, 34, 0);
   color: #FFF; }
 
@@ -99,7 +90,7 @@ body {
 #header-logo, #header-image, #header-nav, #header-toggle-nav {
   position: absolute;
   top: 0%;
-  height: 20vh;
+  height: 22.5vh;
   box-sizing: border-box; }
 
 /**********************************************************
@@ -108,14 +99,14 @@ body {
 #header-logo {
   z-index: 11;
   left: 0%;
-  width: 20vh; }
+  width: 22.5vh; }
 
 #header-image {
   position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  top: 20%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
   background: #CCC; }
 
 /**********************************************************
@@ -124,12 +115,12 @@ body {
 #header-nav {
   z-index: 50;
   right: 0%;
-  width: 30vh; }
+  width: 45vh; }
 
 #header-toggle-nav {
   z-index: 51;
   position: absolute;
-  top: 25%;
+  top: 20%;
   right: 10%;
   width: 10%;
   height: 20%;
@@ -143,15 +134,13 @@ body {
   width: 100%; }
 
 .header-nav-option a {
-  z-index: 53;
   cursor: pointer;
   width: auto;
   margin: 0;
   padding: 0px 0px 0px 2px;
   text-align: left;
   font-size: 1.75vh;
-  line-height: 4vh;
-  font-family: NationalBook; }
+  line-height: 3.5vh; }
 
 /**********************************************************
  * footer.scss
@@ -166,14 +155,13 @@ body {
  * Sizes and dimensions
  */
 #footer {
-  z-index: 40;
+  z-index: 30;
   position: fixed;
   bottom: 0px;
   left: 0px;
   width: 100%;
   height: 20vh;
   border-top: 1px solid #1E90FF;
-  box-sizing: border-box;
   background-color: #122f4e;
   color: #FFF; }
 
@@ -183,30 +171,12 @@ body {
   left: 0;
   width: auto;
   height: 60%;
-  margin-left: 24px;
-  box-sizing: border-box; }
+  margin-left: 24px; }
 
 #footer-contact-header {
-  position: relative;
-  height: 33.33%;
-  color: #3EC0FF;
-  box-sizing: border-box;
-  font-weight: bold;
-  font-family: NationalRegular; }
-
-#footer-contact-mail {
-  position: relative;
+  position: absolute;
   height: auto;
-  color: #FFF;
-  font-weight: bold;
-  font-family: NationalRegular; }
-
-#footer-contact-number {
-  position: relative;
-  height: auto;
-  color: #FFF;
-  font-weight: bold;
-  font-family: NationalRegular; }
+  color: #1E90FF; }
 
 /**********************************************************
  * content.scss
@@ -226,45 +196,37 @@ body {
   left: 0%;
   width: 100%;
   height: auto;
-  box-sizing: border-box;
   min-height: 80vh;
+  box-sizing: border-box;
+  padding: 22.5vh 12px 0px 12px;
   margin-bottom: 20vh;
-  padding: 0px 12px;
+  background: #122f4e;
   color: #FFF; }
 
 #content-header {
   position: relative;
   float: left;
-  width: auto;
-  height: 6vh;
+  width: 100%;
+  height: auto;
   color: #FFF;
   font-size: 6vh;
-  padding: 0px 12px 12px 12px;
-  margin-bottom: 12px;
-  box-sizing: border-box; }
+  padding-bottom: 12px;
+  border-bottom: 2px solid #1E90FF; }
 
 #content-landscape {
   position: absolute;
-  left: -80px;
-  bottom: 20vh;
-  width: calc(100% + 80px);
-  height: auto;
-  max-height: 20vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  object-fit: cover; }
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: auto; }
 
 #content-inner {
   position: relative;
   float: left;
   width: 100%;
   height: auto;
-  padding-top: 20vh;
-  min-height: 100vh;
   box-sizing: border-box;
-  box-sizing: border-box; }
+  padding: 0px 12px; }
 
 .content-section {
   position: relative;
@@ -275,30 +237,6 @@ body {
   background: none;
   color: #FFF; }
 
-hr {
-  clear: both;
-  height: 2px;
-  width: 100%;
-  color: #1E90FF;
-  padding: 0px 12px; }
-
-.content-section:last-child {
-  border-bottom: none; }
-
-.section-inner {
-  position: relative;
-  float: left;
-  width: 100%;
-  height: auto;
-  padding: 0px 12px;
-  margin-bottom: 12; }
-
-.section-inner p {
-  margin-bottom: 18px;
-  font-size: 16px;
-  line-height: 18px;
-  font-family: NationalRegular; }
-
 .content-data {
   font-size: 14px;
   margin: 12px 0px 24px 0px; }
@@ -306,137 +244,25 @@ hr {
 h1 {
   font-size: 4vh;
   margin-top: 12px;
-  margin-bottom: 12px;
-  padding: 0px 12px;
-  color: #1E90FF;
-  font-family: NationalBook; }
-
-h3 {
-  font-size: 3vh;
-  margin-bottom: 12px;
-  color: #1E90FF;
-  font-family: NationalBook; }
-
-.h1-toggle {
-  z-index: 49;
-  position: relative;
-  float: right;
-  margin-top: 0.5vh;
-  height: 3vh;
-  width: 3vh;
-  border-right: 2px solid #1E90FF;
-  border-bottom: 2px solid #1E90FF;
-  cursor: pointer; }
-
-#contact-el {
-  position: absolute;
-  top: 19vh;
-  left: 70vw;
-  width: auto;
-  height: auto;
-  box-sizing: border-box;
-  padding-top: 22px;
-  display: none; }
-
-#contact-header {
-  position: relative;
-  height: 33.33%;
-  color: #3EC0FF;
-  box-sizing: border-box;
-  font-weight: bold;
-  font-family: NationalRegular; }
-
-#contact-mail {
-  position: relative;
-  height: auto;
-  color: #FFF;
-  font-weight: bold;
-  font-family: NationalRegular; }
-
-#contact-number {
-  position: relative;
-  height: auto;
-  color: #FFF;
-  font-weight: bold;
-  font-family: NationalRegular; }
-
-/**********************************************************
- * images.scss
- */
-#arrow-image {
-  position: absolute;
-  top: 15%;
-  right: 1%;
-  width: 25%;
-  height: auto;
-  display: none; }
-
-#dollar-image {
-  position: absolute;
-  top: 40%;
-  right: 1%;
-  width: 25%;
-  height: auto;
-  display: none; }
+  color: #1E90FF; }
 
 /**********************************************************
  */
 @media (min-width: 768px) {
-  .section-inner, #content-header, h1, hr {
-    padding: 0px 12px 0px 12px;
-    margin-left: 20vh;
-    margin-right: 40vh;
-    width: 50vw;
-    height: auto; }
+  #content {
+    padding-top: 11vh; }
   #content-inner {
-    padding-top: 10vh;
-    padding-right: 12vw; }
+    padding: 0 12px 0px 12px;
+    margin-left: 22.5vh;
+    margin-right: 45vh;
+    width: auto; }
   #footer-contact {
-    margin-left: 20vh;
-    padding: 0px 24px; }
-  #header-nav {
-    width: 40vh; }
+    margin-left: 22.5vh;
+    padding: 0px 12px; }
   /*
         #content-inner {
             margin-left: $header-height;
             margin-right: ($header-height * 2);
             width: auto;
             padding: 0px 12px;
-        }*/
-  .section-inner p {
-    font-size: 20px;
-    line-height: 22px; }
-  #dollar-image {
-    display: block;
-    width: 27%;
-    right: 2.5%;
-    top: 40%; }
-  #arrow-image {
-    display: block;
-    width: 27%;
-    right: 2.5%; }
-  #contact-el {
-    display: block; } }
-
-@media (min-width: 1080px) {
-  .section-inner, #content-header, h1, hr {
-    padding: 0px 12px 0px 12px;
-    margin-left: 20vh;
-    margin-right: 60vh;
-    width: 45vw;
-    height: auto; }
-  .section-inner p {
-    font-size: 20px;
-    line-height: 22px; }
-  #dollar-image {
-    display: block;
-    width: 30%;
-    right: 5%;
-    top: 40%; }
-  #arrow-image {
-    display: block;
-    width: 30%;
-    right: 5%; }
-  #contact-el {
-    display: block;
-    left: 64vw; } }
+        }*/ }

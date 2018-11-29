@@ -20,14 +20,14 @@
         top: 0%; left: 0%;
         width: 100%; height: auto;
 
-        min-height: $content-height;
-
         box-sizing: border-box;
 
-        padding: $header-height 12px 0px 12px;
+        min-height: $content-height;
+
+   //     padding: $header-height 0px 0px 0px;
         margin-bottom: $footer-height;
 
-        background: $primary-bg;
+        padding: 0px 12px;
     //    background: #555;
         color: #FFF;
     }
@@ -36,25 +36,36 @@
     #content-header {
         position: relative;
         float: left;
-        width: 100%; height: auto;
+        width: auto; height: 6vh;
         color: #FFF;
         font-size: 6vh;
-        padding-bottom: 12px;
-        border-bottom: 2px solid #1E90FF;
+        padding: 0px 12px 12px 12px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
     }
 
     #content-landscape {
         position: absolute;
-        left: 0%; bottom: 0%;
-        width: 100%; height: auto;
+        left: -80px; bottom: $footer-height;
+        width: calc(100% + 80px); height: auto;
+        max-height: $footer-height;
+        margin: 0; padding: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        object-fit: cover;
     }
 
     #content-inner {
         position: relative;
         float: left;
         width: 100%; height: auto;
+        padding-top: $header-height;
+        min-height: 100vh;
         box-sizing: border-box;
-        padding: 0px 12px;
+    //    padding-bottom: $footer-height;
+    //    padding: 12px 0px 0px 0px;        
+     //   border: 2px solid #FF0;
+        box-sizing: border-box;
     }
         
         .content-section {
@@ -66,14 +77,105 @@
             color: $primary-fg;
         }
 
-        .content-data {
-            font-size: 14px;
-            margin: 12px 0px 24px 0px;
+        hr {
+            clear: both;
+
+            height: 2px;
+            width: 100%;
+            
+            color: #1E90FF;
+
+            padding: 0px 12px;
         }
+
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-inner {
+            position: relative;
+            float: left;
+            width: 100%; height: auto;
+        //    padding-bottom: 12px;
+        //    display: none;
+        //    opacity: 0.01;
+            padding: 0px 12px;
+            margin-bottom: 12;
+        }
+
+            .section-inner p {
+                margin-bottom: 18px;
+                font-size: 16px;
+                line-height: 18px;
+                font-family: NationalRegular;
+            }
+
+            .content-data {
+                font-size: 14px;
+                margin: 12px 0px 24px 0px;
+            }
 
     h1 {
         font-size: 4vh;
         margin-top: 12px;
+        margin-bottom: 12px;
+        padding: 0px 12px;
         color: #1E90FF;
+        font-family: NationalBook;
     }
+
+    h3 {
+        font-size: 3vh;
+        margin-bottom: 12px;
+        color: #1E90FF;
+        font-family: NationalBook;
+    }
+
+        .h1-toggle {
+            z-index: 49;
+            position: relative;
+            float: right;
+            margin-top: 0.5vh;
+            height: 3vh;
+            width: 3vh;
+            border-right: 2px solid #1E90FF;
+            border-bottom: 2px solid #1E90FF;
+            cursor: pointer;
+        }
+
+    
+#contact-el {
+    position: absolute;
+    top: 19vh; left: 70vw;
+    width: auto; height: auto;
+    box-sizing: border-box;
+    padding-top: 22px;
+    display: none;
+}
+
+#contact-header {
+    position: relative;
+    height: 33.33%;
+    color: #3EC0FF;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: NationalRegular;
+}
+
+#contact-mail {
+    position: relative;
+    height: auto;
+    color: #FFF;
+    font-weight: bold;
+    font-family: NationalRegular;
+}
+
+#contact-number {
+    position: relative;
+    height: auto;
+    color: #FFF;
+    font-weight: bold;
+    font-family: NationalRegular;
+}
+
 

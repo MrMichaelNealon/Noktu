@@ -16,7 +16,7 @@
 
 
  #footer {
-     z-index: 40;
+     z-index: 30;
 
      position: fixed;
 
@@ -24,7 +24,6 @@
      width: 100%; height: $footer-height;
 
      border-top: 1px solid #1E90FF;
-     box-sizing: border-box;
 
      background-color: $primary-bg;
      color: #FFF;
@@ -35,31 +34,11 @@
         top: 20%; left: 0;
         width: auto; height: 60%;
         margin-left: 24px;
-        box-sizing: border-box;
     }
 
-    #footer-contact-header {
-        position: relative;
-        height: 33.33%;
-        color: #3EC0FF;
-        box-sizing: border-box;
-        font-weight: bold;
-        font-family: NationalRegular;
-    }
-    
-    #footer-contact-mail {
-        position: relative;
-        height: auto;
-        color: #FFF;
-        font-weight: bold;
-        font-family: NationalRegular;
-    }
-
-    #footer-contact-number {
-        position: relative;
-        height: auto;
-        color: #FFF;
-        font-weight: bold;
-        font-family: NationalRegular;
-    }
+        #footer-contact-header {
+            position: absolute;
+            height: auto;
+            color: #1E90FF;
+        }
 

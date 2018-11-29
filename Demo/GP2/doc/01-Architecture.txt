@@ -1,0 +1,102 @@
+01 - Architecture.
+
+I did consider using some php on the back-end, but since
+the site is relatively small and a single-page application
+I've decided to build it all using front-end tech - HTML5,
+CSS3/SASS and JavaScript/jQuery.
+
+This document will describe the layout of the assets that
+make up the website.
+
+
+The www directory.
+
+The www directory is where all of the site source files
+and assets are kept. Essentially, in order to get the
+site onto a hosting service we transfer all of the files
+from the www directly on to the hosting platform, the
+site should work perfectly right off-the-shelf if imported
+in this manner.
+
+The www directory is divided into the following:
+
+
+    app/
+    config/
+    content/
+    css/
+    images
+    plugins/
+    scss/
+    index.html
+
+
+app/
+
+The app/ directory contains JavaScript modules used to
+implement things like navigation, yu shouldn't really
+have to touch these files although they are well
+commented.
+
+they're mostly self-contained modules that manage the
+front-end UI, navigation, etc.
+
+
+config/
+
+The config/ directory contains some JavaScript files
+where you can configure things like the navigation menu
+animations, etc. You can edit these files, they're mostly
+just OPTION = value type assignments and the files are
+heavily commented explaining what each option is for.
+
+
+content/
+
+The content/ directory is where the main site text is
+kept. I decided that I'd rather keep this seaparate from
+the code so that it's easier for you to edit and maintain.
+
+The content/ files are loaded automatically and rendered
+on-screen when the site is loaded, this helps keep the
+source code and html clean.
+
+These are just .html files with some very basic HTML
+markup. Very easy to edit if you need to change the 
+content.
+
+
+css/ and scss/
+
+The css/ and scss/ directories. You needn't worry about
+these. Any configuration to the design and style of the
+page can be done via the config/ scripts. All you need
+to know is that the scss files are compiled into a single
+css file which is then included in your site. This just
+allows me to produce better css for your site, it'll load
+faster.
+
+
+images/
+
+Naturaly, the images/ directory contains all of the sites
+image assets.
+
+
+plugins/
+
+The plugins/ directory contains a couple of JavaScript
+plugins (jQuery, etc) used to create the front-end
+navigation animations.
+
+
+index.html
+
+Lastly, the index.html file is the main entry point for
+the site, it's the page that users will land on when theyy
+visit your page.
+
+Section 02-Layout.txt will describe the index.html file
+in more detail and talk you through the wireframe design
+and layour of the page.
+

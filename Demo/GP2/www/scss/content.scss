@@ -1,0 +1,79 @@
+/**********************************************************
+ * content.scss
+ *
+ * Defines the #content element, this is where the actual
+ * text content is displayed.
+ *
+ * This file also defined font types, styling for common
+ * tags like h*, p and a elements.
+ *
+ * M. Nealon, 2018.
+ */
+
+    $content-height: 80vh;
+
+
+    #content {
+        z-index: 20;
+
+        position: relative;
+        top: 0%; left: 0%;
+        width: 100%; height: auto;
+
+        min-height: $content-height;
+
+        box-sizing: border-box;
+
+        padding: $header-height 12px 0px 12px;
+        margin-bottom: $footer-height;
+
+        background: $primary-bg;
+    //    background: #555;
+        color: #FFF;
+    }
+
+
+    #content-header {
+        position: relative;
+        float: left;
+        width: 100%; height: auto;
+        color: #FFF;
+        font-size: 6vh;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #1E90FF;
+    }
+
+    #content-landscape {
+        position: absolute;
+        left: 0%; bottom: 0%;
+        width: 100%; height: auto;
+    }
+
+    #content-inner {
+        position: relative;
+        float: left;
+        width: 100%; height: auto;
+        box-sizing: border-box;
+        padding: 0px 12px;
+    }
+        
+        .content-section {
+            position: relative;
+            float: left;
+            width: 100%; height: auto;
+            box-sizing: border-box;
+            background: none;
+            color: $primary-fg;
+        }
+
+        .content-data {
+            font-size: 14px;
+            margin: 12px 0px 24px 0px;
+        }
+
+    h1 {
+        font-size: 4vh;
+        margin-top: 12px;
+        color: #1E90FF;
+    }
+

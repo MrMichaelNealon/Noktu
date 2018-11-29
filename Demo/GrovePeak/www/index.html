@@ -8,14 +8,10 @@
 
 		<link rel="Stylesheet" type="text/css" href="css/main.css" />
 
-		<!-- This is used to scale the display on various devices. This makes -->
-		<!-- it a lot easier for to build a responsive layout that can adjust -->
-		<!-- to various devices. -->
 		<meta content="True" name="HandheldFriendly">	
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<meta name="viewport" content="width=device-width">
 		
-		<!-- Include js plugins/API's. -->
 		<script src="plugins/jquery-1.11.0.js"></script>
 		<script src="plugins/jquery-colour.js"></script>
 
@@ -24,37 +20,76 @@
 	</head>
 
 	<body>
-		<div id="outer">
-			
-		
-			<div id="inner">
 
+		<div id="outer">
+			<div id="inner">
+				<img 
+					id="arrow-image" 
+					src="images/Arrow.png"
+				/>
+				<img 
+					id="dollar-image" 
+					src="images/Dollar.png"
+				/>
+				<div id="contact-el">	
+					<div id="contact-header">CONTACT</div>
+					<div id="contact-mail">farboleda@grovepeak.com</div>
+					<div id="contact-number">+57 320.463.24.06</div>
+				</div>
+<!-- Main content section -->
 				<div id="content">
 					<div id="content-inner">
-					<div id="content-header">
-						GrovePeak
-					</div>
 
-					<div id="WhatWeDo" class="content-section">
-						<h1>WHAT WE DO</h1>
-						<p class="content-data">
-							Grovepeak provides placement services in Latin America to Private
-							Equity Fund Managers. We advise Fund Managers throughout the fundraising
-							process, including local regulatory compliance, leveraging over
-							10 years of experience raising capital in the region.
-						</p>
-					</div>
+						<div id="content-header">
+							<img 
+							src="images/TitleImage.png"
+							height="35em"
+							/>
+						</div>
+						<hr/>
+
+						<div id="WhatWeDo" class="content-section">
+							<h1>
+								WHAT WE DO
+							</h1>
+							<div id="WhatWeDo-inner" class="section-inner"></div>
+							<hr/>
+						</div>
+						<div id="WhoWeServe" class="content-section">
+							<h1>
+								WHO WE SERVE
+							</h1>
+							<div id="WhoWeServe-inner" class="section-inner"></div>
+							<hr/>
+						</div>
+						<div id="HowWeWork" class="content-section">
+							<h1>
+								HOW WE WORK
+							</h1>
+							<div id="HowWeWork-inner" class="section-inner"></div>
+							<hr/>
+						</div>
+						<div id="WhatSetsUsApart" class="content-section">
+							<h1>
+								WHAT SETS US APART
+							</h1>
+							<div id="WhatSetsUsApart-inner" class="section-inner"></div>
+						</div>
 	
-				</div>
-
+<!-- This is the landscape image that appears at the -->
+<!-- bottom of the content area -->
+					<div id="content-landscape">
 					<img 
 						src="./images/Landscape.png" 
 						width="100%" height="auto"
-						id="content-landscape"
 					/>
+					</div>
+
 				</div>
 			</div>
 
+<!-- The overlay is the layer that masks the content -->
+<!-- and footer when the menu is toggled/displayed -->
 			<div id="overlay">
 				&nbsp;
 			</div>
@@ -79,13 +114,21 @@
 				</div>
 			</div>
 
+<!-- Footer element - this is a fixed element that is -->
+<!-- always at the bottom of the page. -->
 			<div id="footer">
 				<div id="footer-contact">
 					<div id="footer-contact-header">CONTACT</div>
+					<div id="footer-contact-mail">farboleda@grovepeak.com</div>
+					<div id="footer-contact-number">+57 320.463.24.06</div>
 				</div>
 			</div>
+
 		</div>
 
+<!-- JavaScript -->
+<!-- -->
+<!-- For more info see the files in app/ -->
 		<script>
 			$(document).ready(function() {
 				buildNav();
