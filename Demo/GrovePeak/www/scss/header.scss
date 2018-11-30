@@ -31,7 +31,15 @@
         top: 0px; left: 0px;
         width: 100%; height: $header-height;
 
-        background-color: rgba(20, 20, 34, 0);
+        background-image: linear-gradient(
+            rgba(18, 47, 78, 1),
+            rgba(18, 47, 78, 1),
+            rgba(18, 47, 78, 1),
+            rgba(18, 47, 78, 1),
+            rgba(18, 47, 78, 1),
+            rgba(18, 47, 78, 0.1)
+        );
+
         color: #FFF;
     }
 
@@ -62,7 +70,6 @@
                 position: absolute;
                 top: 25%; left: 25%;
                 width: 50%; height: 50%;
-                background: #CCC;
             }
 
 
@@ -83,6 +90,7 @@
                 top: 25%; right: 10%;
                 width: 10%; height: 20%;
                 background: none;
+                cursor: pointer;
            //     margin-left: $title-logo-width;
             }
 
@@ -92,6 +100,7 @@
                     position: absolute;
                     height: 50%;
                     width: 100%;
+                    cursor: pointer;
                 }
 
                     .header-nav-option a {

@@ -181,9 +181,12 @@ const   Nav = (function() {
                 _showLink("3", { "height": "100%", "opacity": "0.99", "top": "300%" });
 
                 _popLink(0, function() {
-                    $("#link-0").trigger("mouseover");
+                    $("#nav-option-0").animate({
+                        "color": "#1E90FF"
+                    }, 500, "linear", function() {
                         locked = false;
                         console.log("Links popped - unlocking");
+                    });
                 });
             }, NAV_ANIMATION_PAUSE);
         });
@@ -234,12 +237,17 @@ const   Nav = (function() {
         var section_top = parseInt($("#content-inner").css("padding-top").replace('px', ''));
         section_top += parseInt($("#content-header").css("height").replace('px', ''));
 
+        var header_height = parseInt($("#header").css("height").replace('px', ''));
+
         //alert("PAdding top = " + section_top);
         //section_top = 0;
         for (var section = 0; section < index; section++) {
             section_top += parseInt($("#" + _options[section].id).css("height").replace('px', ''));
-            section_top += 64;
+            section_top += 58;
         }
+
+        section_top -= header_height;
+
 
        // console.log(`page_height == ${page_height} section_top == ${section_top}`)
         $("html, body").animate({

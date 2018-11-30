@@ -42,17 +42,17 @@
         padding: 0px 12px 12px 12px;
         margin-bottom: 12px;
         box-sizing: border-box;
+        font-family: NationalBold;
     }
 
     #content-landscape {
         position: absolute;
-        left: -80px; bottom: $footer-height;
-        width: calc(100% + 80px); height: auto;
-        max-height: $footer-height;
+        left: -100%; bottom: $footer-height;
+        width: 300%; height: auto;
+        max-height: ($footer-height / 1.5);
         margin: 0; padding: 0;
         box-sizing: border-box;
         overflow: hidden;
-        object-fit: cover;
     }
 
     #content-inner {
@@ -107,7 +107,7 @@
                 margin-bottom: 18px;
                 font-size: 16px;
                 line-height: 18px;
-                font-family: NationalRegular;
+                font-family: GP;
             }
 
             .content-data {
@@ -125,10 +125,10 @@
     }
 
     h3 {
-        font-size: 3vh;
+        font-size: 2.5vh;
         margin-bottom: 12px;
         color: #1E90FF;
-        font-family: NationalBook;
+        font-family: NationalBold;
     }
 
         .h1-toggle {
@@ -145,12 +145,14 @@
 
     
 #contact-el {
+    z-index: 25;
     position: absolute;
-    top: 19vh; left: 70vw;
+    top: 26vh; left: 70vw;
     width: auto; height: auto;
     box-sizing: border-box;
     padding-top: 22px;
     display: none;
+    font-family: NationalRegular;
 }
 
 #contact-header {
@@ -168,6 +170,14 @@
     color: #FFF;
     font-weight: bold;
     font-family: NationalRegular;
+    a {
+        color: #FFF;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:hover {
+        color: #3EC0FF;
+    }
 }
 
 #contact-number {
@@ -176,6 +186,55 @@
     color: #FFF;
     font-weight: bold;
     font-family: NationalRegular;
+    a {
+        color: #FFF;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:hover {
+        color: #3EC0FF;
+    }
+}
+
+#profile {
+    position: relative;
+    float: left;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    width: 100%; height: auto;
+}
+
+#profile-image {
+    position: absolute;
+    float: left;
+    width: 28%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+#profile-text {
+    position: relative;
+    float: right;
+    width: auto;
+    height: auto;
+    font-family: NationalRegular;
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    a {
+        z-index: 60;
+        color: #3EC0FF;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:hover {
+        color: #FFF;
+    }
 }
 
 

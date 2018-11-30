@@ -2,16 +2,64 @@
  */
 
 
+    $screen-tiny: 320px;
+    $screen-mini: 460px;
     $screen-small: 576px;
     $screen-medium: 768px;
     $screen-large: 1080px;
+    $screen-wide: 1200px;
 
+
+    @media (min-width: $screen-tiny) {
+        #content-landscape {
+            left: -95%;
+            width:  290%;
+            height: ($footer-height * 2);
+            bottom: ($footer-height);
+        }
+        #content { margin-bottom: $footer-height; }
+        #profile-image {
+            position: relative;
+            float: left;
+            width: 25%;
+        }
+        #profile-text {
+            float: left;
+            font-size: 12px;
+            padding-left: 12px;
+            width: 75%;
+        }
+    }
+
+    @media (min-width: $screen-mini) {
+        #content-landscape {
+            left: -40%;
+            width:  180%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }
+        #content { margin-bottom: $footer-height }
+        #profile-image {
+            width: 30%;
+        }
+        #profile-text {
+            width: 70%;
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
 
     @media (min-width: $screen-medium) {
     //    #content {
     //        padding-top: 11vh;
     //    }
-
+        #content-landscape {
+            left: -10%;
+            width:  120%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }
+        #content { margin-bottom: $footer-height }
         .section-inner, #content-header, h1, hr {
             padding: 0px 12px 0px 12px;
             margin-left: $header-height;
@@ -21,7 +69,7 @@
         }
 
         #content-inner {
-            padding-top: 10vh;
+            padding-top: 18vh;
             padding-right: 12vw;
         }
 
@@ -44,13 +92,21 @@
 
         .section-inner p { font-size: 20px; line-height: 22px; }
 
-        #dollar-image { display: block; width: 27%; right: 2.5%; top: 40%; } 
+        #dollar-image { display: block; width: 19%; right: 10%; top: 40%; } 
         #arrow-image { display: block; width: 27%; right: 2.5%; }
 
         #contact-el { display: block; }
+
+        #profile-text { font-size: 14px; line-height: 14px; }
     }
 
     @media (min-width: $screen-large) {
+        #content-landscape {
+            left: -5%;
+            width:  110%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }
         .section-inner, #content-header, h1, hr {
             padding: 0px 12px 0px 12px;
             margin-left: $header-height;
@@ -60,9 +116,20 @@
         }
         .section-inner p { font-size: 20px; line-height: 22px; }
 
-        #dollar-image { display: block; width: 30%; right: 5%; top: 40%; } 
+        #dollar-image { display: block; width: 20%; right: 14%; top: 40%; } 
         #arrow-image { display: block; width: 30%; right: 5%; }
         
         #contact-el { display: block; left: 64vw; }
+
+        #profile-text { font-size: 18px; line-height: 18px; }
+    }
+
+    @media (min-width: $screen-wide) {
+        #content-landscape {
+            left: 0%;
+            width:  100%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }
     }
 

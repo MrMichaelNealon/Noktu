@@ -42,7 +42,8 @@ body {
   height: auto;
   min-height: 100%;
   box-sizing: border-box;
-  background: #122f4e; }
+  background: #122f4e;
+  overflow-x: hidden; }
 
 #overlay {
   position: fixed;
@@ -60,11 +61,19 @@ body {
  */
 @font-face {
   font-family: NationalRegular;
-  src: url(Fonts/National-Regular.otf); }
+  src: url(Fonts/NationalTest-Regular.otf); }
+
+@font-face {
+  font-family: NationalBold;
+  src: url(Fonts/National-Bold.otf); }
 
 @font-face {
   font-family: NationalBook;
   src: url(Fonts/National-Book.otf); }
+
+@font-face {
+  font-family: GP;
+  src: url(Fonts/NationalTest-Regular.otf); }
 
 /**********************************************************
  * header.scss
@@ -90,7 +99,7 @@ body {
   left: 0px;
   width: 100%;
   height: 20vh;
-  background-color: rgba(20, 20, 34, 0);
+  background-image: linear-gradient(#122f4e, #122f4e, #122f4e, #122f4e, #122f4e, rgba(18, 47, 78, 0.1));
   color: #FFF; }
 
 /**********************************************************
@@ -115,8 +124,7 @@ body {
   top: 25%;
   left: 25%;
   width: 50%;
-  height: 50%;
-  background: #CCC; }
+  height: 50%; }
 
 /**********************************************************
  * This is where the navigation menu system is shown.
@@ -133,14 +141,16 @@ body {
   right: 10%;
   width: 10%;
   height: 20%;
-  background: none; }
+  background: none;
+  cursor: pointer; }
 
 .header-nav-option {
   z-index: 52;
   display: inline-block;
   position: absolute;
   height: 50%;
-  width: 100%; }
+  width: 100%;
+  cursor: pointer; }
 
 .header-nav-option a {
   z-index: 53;
@@ -175,14 +185,15 @@ body {
   border-top: 1px solid #1E90FF;
   box-sizing: border-box;
   background-color: #122f4e;
-  color: #FFF; }
+  color: #FFF;
+  font-family: NationalRegular; }
 
 #footer-contact {
   position: absolute;
   top: 20%;
   left: 0;
   width: auto;
-  height: 60%;
+  height: auto;
   margin-left: 24px;
   box-sizing: border-box; }
 
@@ -200,6 +211,12 @@ body {
   color: #FFF;
   font-weight: bold;
   font-family: NationalRegular; }
+  #footer-contact-mail a {
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer; }
+  #footer-contact-mail a:hover {
+    color: #3EC0FF; }
 
 #footer-contact-number {
   position: relative;
@@ -207,6 +224,12 @@ body {
   color: #FFF;
   font-weight: bold;
   font-family: NationalRegular; }
+  #footer-contact-number a {
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer; }
+  #footer-contact-number a:hover {
+    color: #3EC0FF; }
 
 /**********************************************************
  * content.scss
@@ -241,20 +264,20 @@ body {
   font-size: 6vh;
   padding: 0px 12px 12px 12px;
   margin-bottom: 12px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: NationalBold; }
 
 #content-landscape {
   position: absolute;
-  left: -80px;
+  left: -100%;
   bottom: 20vh;
-  width: calc(100% + 80px);
+  width: 300%;
   height: auto;
-  max-height: 20vh;
+  max-height: 13.33333vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
-  object-fit: cover; }
+  overflow: hidden; }
 
 #content-inner {
   position: relative;
@@ -297,7 +320,7 @@ hr {
   margin-bottom: 18px;
   font-size: 16px;
   line-height: 18px;
-  font-family: NationalRegular; }
+  font-family: GP; }
 
 .content-data {
   font-size: 14px;
@@ -312,10 +335,10 @@ h1 {
   font-family: NationalBook; }
 
 h3 {
-  font-size: 3vh;
+  font-size: 2.5vh;
   margin-bottom: 12px;
   color: #1E90FF;
-  font-family: NationalBook; }
+  font-family: NationalBold; }
 
 .h1-toggle {
   z-index: 49;
@@ -329,14 +352,16 @@ h3 {
   cursor: pointer; }
 
 #contact-el {
+  z-index: 25;
   position: absolute;
-  top: 19vh;
+  top: 26vh;
   left: 70vw;
   width: auto;
   height: auto;
   box-sizing: border-box;
   padding-top: 22px;
-  display: none; }
+  display: none;
+  font-family: NationalRegular; }
 
 #contact-header {
   position: relative;
@@ -352,6 +377,12 @@ h3 {
   color: #FFF;
   font-weight: bold;
   font-family: NationalRegular; }
+  #contact-mail a {
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer; }
+  #contact-mail a:hover {
+    color: #3EC0FF; }
 
 #contact-number {
   position: relative;
@@ -359,6 +390,46 @@ h3 {
   color: #FFF;
   font-weight: bold;
   font-family: NationalRegular; }
+  #contact-number a {
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer; }
+  #contact-number a:hover {
+    color: #3EC0FF; }
+
+#profile {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto; }
+
+#profile-image {
+  position: absolute;
+  float: left;
+  width: 28%;
+  height: auto;
+  box-sizing: border-box; }
+
+#profile-text {
+  position: relative;
+  float: right;
+  width: auto;
+  height: auto;
+  font-family: NationalRegular;
+  font-size: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0px 0px 0px 0px; }
+  #profile-text a {
+    z-index: 60;
+    color: #3EC0FF;
+    text-decoration: none;
+    cursor: pointer; }
+  #profile-text a:hover {
+    color: #FFF; }
 
 /**********************************************************
  * images.scss
@@ -375,13 +446,53 @@ h3 {
   position: absolute;
   top: 40%;
   right: 1%;
-  width: 25%;
+  width: 14%;
   height: auto;
   display: none; }
 
 /**********************************************************
  */
+@media (min-width: 320px) {
+  #content-landscape {
+    left: -95%;
+    width: 290%;
+    height: 40vh;
+    bottom: 20vh; }
+  #content {
+    margin-bottom: 20vh; }
+  #profile-image {
+    position: relative;
+    float: left;
+    width: 25%; }
+  #profile-text {
+    float: left;
+    font-size: 12px;
+    padding-left: 12px;
+    width: 75%; } }
+
+@media (min-width: 460px) {
+  #content-landscape {
+    left: -40%;
+    width: 180%;
+    height: 40vh;
+    bottom: 20vh; }
+  #content {
+    margin-bottom: 20vh; }
+  #profile-image {
+    width: 30%; }
+  #profile-text {
+    width: 70%;
+    font-size: 16px;
+    line-height: 16px; } }
+
 @media (min-width: 768px) {
+  #content-landscape {
+    left: -10%;
+    width: 120%;
+    height: 40vh;
+    bottom: 20vh; }
+  #content {
+    margin-bottom: 20vh; }
   .section-inner, #content-header, h1, hr {
     padding: 0px 12px 0px 12px;
     margin-left: 20vh;
@@ -389,7 +500,7 @@ h3 {
     width: 50vw;
     height: auto; }
   #content-inner {
-    padding-top: 10vh;
+    padding-top: 18vh;
     padding-right: 12vw; }
   #footer-contact {
     margin-left: 20vh;
@@ -408,17 +519,25 @@ h3 {
     line-height: 22px; }
   #dollar-image {
     display: block;
-    width: 27%;
-    right: 2.5%;
+    width: 19%;
+    right: 10%;
     top: 40%; }
   #arrow-image {
     display: block;
     width: 27%;
     right: 2.5%; }
   #contact-el {
-    display: block; } }
+    display: block; }
+  #profile-text {
+    font-size: 14px;
+    line-height: 14px; } }
 
 @media (min-width: 1080px) {
+  #content-landscape {
+    left: -5%;
+    width: 110%;
+    height: 40vh;
+    bottom: 20vh; }
   .section-inner, #content-header, h1, hr {
     padding: 0px 12px 0px 12px;
     margin-left: 20vh;
@@ -430,8 +549,8 @@ h3 {
     line-height: 22px; }
   #dollar-image {
     display: block;
-    width: 30%;
-    right: 5%;
+    width: 20%;
+    right: 14%;
     top: 40%; }
   #arrow-image {
     display: block;
@@ -439,4 +558,14 @@ h3 {
     right: 5%; }
   #contact-el {
     display: block;
-    left: 64vw; } }
+    left: 64vw; }
+  #profile-text {
+    font-size: 18px;
+    line-height: 18px; } }
+
+@media (min-width: 1200px) {
+  #content-landscape {
+    left: 0%;
+    width: 100%;
+    height: 40vh;
+    bottom: 20vh; } }
