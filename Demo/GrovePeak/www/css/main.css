@@ -181,7 +181,7 @@ body {
   bottom: 0px;
   left: 0px;
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   border-top: 1px solid #1E90FF;
   box-sizing: border-box;
   background-color: #122f4e;
@@ -251,7 +251,7 @@ body {
   height: auto;
   box-sizing: border-box;
   min-height: 80vh;
-  margin-bottom: 20vh;
+  margin-bottom: 15vh;
   padding: 0px 12px;
   color: #FFF; }
 
@@ -269,11 +269,10 @@ body {
 
 #content-landscape {
   position: absolute;
-  left: -100%;
-  bottom: 20vh;
-  width: 300%;
-  height: auto;
-  max-height: 13.33333vh;
+  left: -15%;
+  bottom: 15vh;
+  width: 130%;
+  height: 15vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -453,13 +452,14 @@ h3 {
 /**********************************************************
  */
 @media (min-width: 320px) {
-  #content-landscape {
-    left: -95%;
-    width: 290%;
-    height: 40vh;
-    bottom: 20vh; }
+  /*    #content-landscape {
+            left: -95%;
+            width:  290%;
+            height: ($footer-height * 2);
+            bottom: ($footer-height);
+        }*/
   #content {
-    margin-bottom: 20vh; }
+    margin-bottom: 15vh; }
   #profile-image {
     position: relative;
     float: left;
@@ -471,13 +471,14 @@ h3 {
     width: 75%; } }
 
 @media (min-width: 460px) {
-  #content-landscape {
-    left: -40%;
-    width: 180%;
-    height: 40vh;
-    bottom: 20vh; }
+  /*    #content-landscape {
+            left: -40%;
+            width:  180%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }*/
   #content {
-    margin-bottom: 20vh; }
+    margin-bottom: 15vh; }
   #profile-image {
     width: 30%; }
   #profile-text {
@@ -487,12 +488,12 @@ h3 {
 
 @media (min-width: 768px) {
   #content-landscape {
-    left: -10%;
-    width: 120%;
-    height: 40vh;
-    bottom: 20vh; }
+    left: 0%;
+    width: 100%;
+    height: 22.5vh;
+    bottom: 15vh; }
   #content {
-    margin-bottom: 20vh; }
+    margin-bottom: 15vh; }
   .section-inner, #content-header, h1, hr {
     padding: 0px 12px 0px 12px;
     margin-left: 20vh;
@@ -533,11 +534,12 @@ h3 {
     line-height: 14px; } }
 
 @media (min-width: 1080px) {
-  #content-landscape {
-    left: -5%;
-    width: 110%;
-    height: 40vh;
-    bottom: 20vh; }
+  /*    #content-landscape {
+            left: -5%;
+            width:  110%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }*/
   .section-inner, #content-header, h1, hr {
     padding: 0px 12px 0px 12px;
     margin-left: 20vh;
@@ -563,9 +565,11 @@ h3 {
     font-size: 18px;
     line-height: 18px; } }
 
-@media (min-width: 1200px) {
-  #content-landscape {
-    left: 0%;
-    width: 100%;
-    height: 40vh;
-    bottom: 20vh; } }
+/*@media (min-width: $screen-wide) {
+        #content-landscape {
+            left: 0%;
+            width:  100%;
+            height: ($footer-height * 2);
+            bottom: $footer-height;
+        }
+    }*/

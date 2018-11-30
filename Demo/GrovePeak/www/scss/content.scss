@@ -47,9 +47,9 @@
 
     #content-landscape {
         position: absolute;
-        left: -100%; bottom: $footer-height;
-        width: 300%; height: auto;
-        max-height: ($footer-height / 1.5);
+        left: -15%; bottom: $footer-height;
+        width: 130%; height: $footer-height;
+   //    max-height: $footer-height;
         margin: 0; padding: 0;
         box-sizing: border-box;
         overflow: hidden;

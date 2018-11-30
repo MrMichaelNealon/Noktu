@@ -11,12 +11,12 @@
 
 
     @media (min-width: $screen-tiny) {
-        #content-landscape {
+    /*    #content-landscape {
             left: -95%;
             width:  290%;
             height: ($footer-height * 2);
             bottom: ($footer-height);
-        }
+        }*/
         #content { margin-bottom: $footer-height; }
         #profile-image {
             position: relative;
@@ -32,12 +32,12 @@
     }
 
     @media (min-width: $screen-mini) {
-        #content-landscape {
+    /*    #content-landscape {
             left: -40%;
             width:  180%;
             height: ($footer-height * 2);
             bottom: $footer-height;
-        }
+        }*/
         #content { margin-bottom: $footer-height }
         #profile-image {
             width: 30%;
@@ -54,9 +54,11 @@
     //        padding-top: 11vh;
     //    }
         #content-landscape {
-            left: -10%;
-            width:  120%;
-            height: ($footer-height * 2);
+            left: 0%;
+            width:  100%;
+            height: ($footer-height * 1.5);
+
+            //height: auto;
             bottom: $footer-height;
         }
         #content { margin-bottom: $footer-height }
@@ -101,12 +103,12 @@
     }
 
     @media (min-width: $screen-large) {
-        #content-landscape {
+    /*    #content-landscape {
             left: -5%;
             width:  110%;
             height: ($footer-height * 2);
             bottom: $footer-height;
-        }
+        }*/
         .section-inner, #content-header, h1, hr {
             padding: 0px 12px 0px 12px;
             margin-left: $header-height;
@@ -124,12 +126,12 @@
         #profile-text { font-size: 18px; line-height: 18px; }
     }
 
-    @media (min-width: $screen-wide) {
+    /*@media (min-width: $screen-wide) {
         #content-landscape {
             left: 0%;
             width:  100%;
             height: ($footer-height * 2);
             bottom: $footer-height;
         }
-    }
+    }*/
 
