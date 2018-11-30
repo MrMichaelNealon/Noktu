@@ -269,10 +269,10 @@ body {
 
 #content-landscape {
   position: absolute;
-  left: -15%;
+  left: -5%;
   bottom: 15vh;
-  width: 130%;
-  height: 15vh;
+  width: 110%;
+  height: auto;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
