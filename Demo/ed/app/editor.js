@@ -86,10 +86,10 @@ console.log("STRIP");
                         range = selection.getRangeAt(0);
                         range.deleteContents();
     
-                        var el = document.createElement(el_type);
+                    //    var el = document.createElement(el_type);
     
-                        range.insertNode(el);
-                        el.innerHTML = _html;
+                    //    range.insertNode(el);
+                    //    el.innerHTML = _html;
                     }
                 } else if (document.selection && document.selection.type != "Control") {
                     selection = document.selection.createRange();
