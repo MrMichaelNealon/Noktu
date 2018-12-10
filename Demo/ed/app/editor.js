@@ -78,7 +78,7 @@ console.log("STRIP");
                 //    if (selection.text)
                 //        html = selection.text;
                         
-                    console.log("Strip " + html);
+                    console.log("Strip >>> " + html);
                     if (selection.getRangeAt && selection.rangeCount) {
                         var _html = new String(stripHTMLTags(html));
                         var el = document.createElement(el_type);
@@ -96,10 +96,10 @@ console.log("STRIP");
                     html = selection;
                     if (selection.text)
                         html = selection.text;
-                    if (selection.innerHTML)
-                        html = selection.innerHTML;
+
+                    _html = stripHTMLTags(html);
     
-                    selection.pasteHTML(html);
+                    selection.pasteHTML(_html);
                 }
     
                 _showRaw();
