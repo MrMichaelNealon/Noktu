@@ -138,8 +138,12 @@ console.log("STRIP");
             let range;
 
             let el_type = document.getElementById('select-node').value;
+
             let el_class = document.getElementById('select-class').value;
             let el_style = document.getElementById('select-style').value;
+
+            let str_class = document.getElementById(el_class).text;
+            let str_style = document.getElementById(el_style).text;
 
             let strip_inner = document.getElementById('strip-nodes').checked;
 
@@ -164,10 +168,10 @@ console.log("STRIP");
                     console.log("CONTENTS: " + _html);
 
                     var el = document.createElement(el_type);
-                    if (el_class != "none")
-                        el.setAttribute("class", el_class);
-                    if (el_style != "none")
-                        el.setAttribute("style", el_style);
+                    if (str_class != "none")
+                        el.setAttribute("class", str_class);
+                    if (str_style != "-- none")
+                        el.setAttribute("style", str_style);
 
                     range.insertNode(el);
                     el.innerHTML = _html;
