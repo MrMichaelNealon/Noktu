@@ -127,7 +127,6 @@ console.log("STRIP");
 
 
         let stripHTMLTags = function(html) {
-
             var tmp = document.createElement("DIV");
             tmp.innerHTML = html;
             return tmp.textContent || tmp.innerText || "";
@@ -139,6 +138,9 @@ console.log("STRIP");
             let range;
 
             let el_type = document.getElementById('select-node').value;
+            let el_class = document.getElementById('select-class').value;
+            let el_style = document.getElementById('select-style').value;
+
             let strip_inner = document.getElementById('strip-nodes').checked;
 
             if (window.getSelection) {
@@ -155,7 +157,6 @@ console.log("STRIP");
                   
                     console.log(_html);
                     var el = document.createElement(el_type);
-
                     range = selection.getRangeAt(0);
                     range.deleteContents();
 
@@ -163,6 +164,10 @@ console.log("STRIP");
                     console.log("CONTENTS: " + _html);
 
                     var el = document.createElement(el_type);
+                    if (el_class != "-- none --")
+                        el.setAttribute("class", el_class);
+                    if (el_style != "-- none --")
+                        el.setAttribute("style", el_style);
 
                     range.insertNode(el);
                     el.innerHTML = _html;

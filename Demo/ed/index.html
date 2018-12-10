@@ -13,10 +13,28 @@
         <div id="outer">
             <div id="inner">
 
+                <select id="select-class" class="selection">
+                    <option value="none">-- none --</option>
+                    <option value="class-1">class-1</option>
+                    <option value="class-2">class-2</option>
+                    <option value="class-2">class-3</option>
+                </select>
+                <label for="select-style">Class</label>
+
+                <select id="select-style" class="selection">
+                    <option value="none">-- none --</option>
+                    <option value="red-text">color: red</option>
+                    <option value="green-text">color: green</option>
+                    <option value="blue-text">color: blue</option>
+                    <option value="bold-text">color: green</option>
+                </select>
+                <label for="select-style">Style</label>
+                
                 <select id="select-node" class="selection">
                     <option value="span">span</option>
                     <option value="div">div</option>
-                </select>
+                    </select>
+                <label for="select-style">Element</label>
 
                 <button id="insert-node" class="control" type="submit">
                     Insert
