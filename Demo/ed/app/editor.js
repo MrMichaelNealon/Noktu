@@ -164,9 +164,9 @@ console.log("STRIP");
                     console.log("CONTENTS: " + _html);
 
                     var el = document.createElement(el_type);
-                    if (el_class != "-- none --")
+                    if (el_class != "none")
                         el.setAttribute("class", el_class);
-                    if (el_style != "-- none --")
+                    if (el_style != "none")
                         el.setAttribute("style", el_style);
 
                     range.insertNode(el);
