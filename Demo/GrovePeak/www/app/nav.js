@@ -243,7 +243,7 @@ const   Nav = (function() {
         //section_top = 0;
         for (var section = 0; section < index; section++) {
             section_top += parseInt($("#" + _options[section].id).css("height").replace('px', ''));
-            section_top += 58;
+            section_top += 82;
         }
 
         section_top -= header_height;

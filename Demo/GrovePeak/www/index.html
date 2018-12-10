@@ -131,6 +131,26 @@
 		<script>
 			$(document).ready(function() {
 				buildNav();
+
+				function loadLandscape() {
+					var	img_src;
+
+					if (window.innerWidth > 768) {
+						img_src =  "images/Landscape-large.png"
+					} else {
+						img_src =  "images/Landscape.png"
+					}
+
+					$("#content-landscape").attr("src", img_src);
+				}
+
+			//	window.onload(function() {
+					loadLandscape();
+
+					$(window).on("resize", function() {
+						loadLandscape();
+					});
+			//	});
 			});
 		</script>
 

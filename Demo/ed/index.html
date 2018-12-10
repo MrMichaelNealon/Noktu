@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>
+            Ed
+        </title>
+        <script src="app/editor.js"></script>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="inner">
+
+                <select id="select-node" class="selection">
+                    <option value="span">span</option>
+                    <option value="div">div</option>
+                </select>
+
+                <button id="insert-node" class="control" type="submit">
+                    Insert
+                </button>
+
+                <form>
+                    <input id="strip-nodes" class="checker" type="checkbox">
+                
+                    <label for="strip-nodes">
+                        Strip inner nodes
+                    </label>
+                </form>
+                <button id="strip" class="control" type="submit">
+                    Strip Nodes
+                </button>
+
+                <div id="editor" class="editor" style="clear: both; " contentEditable="true">
+<p>
+    <h1>Stuff</h1>
+    <br />
+    <ul style="margin-left: 48px">
+        <li>One <span><i><b>1</b></i></span></li>
+        <li>Two <i><b>2</b></i></li>
+        <li>Three <b>3</b></li>
+    </ul>
+    <br /><br/>
+     <p>
+        A <i>string</i> with <b>lot&#39;s</b> of <b><i>formatting</i></b><br/>
+    </p>
+</p>
+                </div>
+
+                <div class="editor" style="font-size: 12px;">
+                    <pre><code id="raw"></code></pre>
+                </div>
+            </div>
+        </div>
+        <script>
+            var ed = ContentEditor({
+                "autoinit": true,
+                "insertnode": "insert-node",
+                "raw": "raw"
+            });
+        </script>
+    </body>
+</html>
