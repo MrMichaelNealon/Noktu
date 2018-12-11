@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>
+            HTML Node Editor
+        </title>
+        <script src="./app/NodeEditor.js"></script>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="inner"></div>
+
+                <button id="insert" class="control">
+                    Insert
+                </button>
+
+                <input id="strip-selected" type="checkbox" class="control">
+                <label for="strip-selected">
+                    Strip selected
+                </label>
+
+                <select id="style-type">
+                    <option value="0">none</option>
+                    <option value="1">red</option>
+                    <option value="2">green</option>
+                    <option value="3">blue</option>
+                    <option value="4">bold</option>
+                </select>
+                <label for="tag-type">Style</label>
+
+                <select id="class-type">
+                    <option value="0">none</option>
+                    <option value="1">class-1</option>
+                    <option value="2">class-2</option>
+                    <option value="3">class-3</option>
+                </select>
+                <label for="tag-type">Class</label>
+
+                <select id="tag-type">
+                    <option value="option-span">span</option>
+                    <option value="option-div">div</option>
+                </select>
+                <label for="tag-type">HTML Tag</label>
+                
+                <button id="strip" class="control">
+                    Strip HTML Tags
+                </button>
+
+                <div id="editor_el" class="editor" style="font-size: 16px;" ContentEditable="true"><div>
+    <h1>A title</h1>
+    <br>
+
+    <p
+        >A <i>short</i> paragraph of <b>text</b> with 
+        some <b><i>basic</i></b> formatting.
+    </p>
+    <br>
+
+    <h2>A Subtitle</h2>
+    <br>
+
+    <ol style="margin-left: 48px;">
+        <li>Item one</li>
+        <li>Item two</li>
+        <li>Item three</li>
+    </ol>
+</div>   
+                </div>
+                <div class="raw" style="font-size: 14px;" ContentEditable="true">
+                    <pre><code id="raw_el"></code></pre>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            let ed = NodeEditor({
+            //  Options/cnfiguration
+            //
+            //  We use the "editor_id" option to specify the
+            //  id of the ContentEditable div. If "editor_id"
+            //  is not set then the default id "editor" is
+            //  used.
+                "editor_id": "editor_el",
+            
+            //  The "raw_id" option can be used to point to an
+            //  element where the raw innerHTML of the
+            //  ContentEditable div.
+            //
+            //  This option can be omitted if you don't wish
+            //  to see the raw HTML.
+                "raw_id": "raw_el"
+            });
+
+
+        ///////////////////////////////////////////////////
+        //  Bind the "strip" button click event. This
+        //  should invole the stripHTMLTags() method.
+        //
+            document.getElementById('strip').addEventListener(
+                "click",
+                function() {
+                    console.log("Stareep");
+                    ed.replaceSelectedText();
+                }
+            );
+
+        ///////////////////////////////////////////////////
+        //  insertElement()
+        //
+        //  This method behaves in 2 different ways, it
+        //  really depends on whether or not text is
+        //  selected. If text is not selected then the
+        //  new tag is inserted at the position of the
+        //  caret - the tag, since no text is selected,
+        //  will contain no inner text.
+        //
+        //  On the other hand - if text is selected then
+        //  this becomes a wrap function that instead
+        //  encapsulates the selected text in the newly
+        //  clreated/inserted tag.
+        //
+        //  From a use perspective we don't need to care,
+        //  the insertElement() function will determine
+        //  whether or not a selection has been made and
+        //  execute the appropriate code. We can simply
+        //  have a single insert exent/trigger that can
+        //  handle both use cases.
+        //
+        //
+        //  Options:
+        //
+        //  The insertElement() method accepts a single
+        //  argument which is an object literal. Each
+        //  field is optional and the structure is as
+        //  follows:
+        //
+        //      {
+        //          "striptags": boolean,
+        //          "tag_name": string,
+        //          "class_name": string,
+        //          "style": string
+        //      }
+        //
+        //  Pretty self explanitory, omitting any option
+        //  means that the particular functionality is
+        //  ignored/ommited. For example, the striptags
+        //  option can be omitted in which case no tags
+        //  will be stripped - it's akin to setting the
+        //  striptags option explicitly to false.
+        //
+        //  Similarly, omitting either the class or style
+        //  options will result in an element with that
+        //  respective attribute unset.
+        //
+        //  The only point to note is that omitting the
+        //  tag option would automatically result in a
+        //  <span> tag being created.
+        //
+        //  Note:
+        //
+        //  So - for purposes of the demo I've build a
+        //  basic function - buildInsertObject().
+        //
+        //  it will check the selected values in the
+        //  drop-downs, etc, and construct then return
+        //  the object to be passed to the insertElement()
+        //  method. you can come up with your own means of
+        //  constructing your objects and passing them into
+        //  the method.
+        //
+        function buildInsertObject() {
+            var tag_index = document.getElementById('tag-type');
+            var class_index = document.getElementById('class-type');
+            var style_index = document.getElementById('style-type');
+
+            var tag_text = tag_index.options[tag_index.selectedIndex].text;
+            var class_text = class_index.options[class_index.selectedIndex].text;
+            var style_text = style_index.options[style_index.selectedIndex].text;
+
+            var strip_tags = document.getElementById('strip-selected').checked;
+
+            var obj = {
+                "striptags": false,
+                "tag": "span"
+            };
+
+            if (typeof(strip_tags) !== "undefined")
+                obj.striptags = strip_tags;
+            if (typeof(tag_text) !== "undefined")
+                obj.tag_name = tag_text;
+            if (typeof(class_text) !== "undefined" && class_text !== "none")
+                obj.class_name = class_text;
+            if (typeof(style_text) !== "undefined" && style_text !== "none")
+                obj.style = style_text;
+
+            return obj;
+        }
+
+
+        document.getElementById('insert').addEventListener(
+            "click",
+            function() {
+            //  Get the insert object for the call to
+            //  the insertElement() method...
+            //
+                var obj = buildInsertObject();
+
+                console.log(`
+ElementInsertion:
+
+    striptags: ${obj.striptags}
+    tag_name: ${obj.tag_name}
+    class_name: ${obj.class_name}
+    style: ${obj.style}
+
+                `);
+
+                ed.insertNode(obj);
+            }
+        )
+
+        </script>
+    </body>
+</html>
