@@ -6,6 +6,11 @@
         <title>
             HTML Node Editor
         </title>
+        <style>
+            .class-bold { font-weight: bold; }
+            .class-italic { font-style: italic; }
+            .class-underline { text-decoration: underline; }
+        </style>
         <script src="./app/NodeEditor.js"></script>
     </head>
     <body>
@@ -23,18 +28,17 @@
 
                 <select id="style-type">
                     <option value="0">none</option>
-                    <option value="1">red</option>
-                    <option value="2">green</option>
-                    <option value="3">blue</option>
-                    <option value="4">bold</option>
+                    <option value="1">color: red;</option>
+                    <option value="2">color: green;</option>
+                    <option value="3">color: blue;</option>
                 </select>
                 <label for="tag-type">Style</label>
 
                 <select id="class-type">
                     <option value="0">none</option>
-                    <option value="1">class-1</option>
-                    <option value="2">class-2</option>
-                    <option value="3">class-3</option>
+                    <option value="1">class-bold</option>
+                    <option value="2">class-italic</option>
+                    <option value="3">class-underline</option>
                 </select>
                 <label for="tag-type">Class</label>
 
@@ -75,7 +79,17 @@
         </div>
         <script>
             
+        //  All we have to do is include the NodeEditor.js
+        //  script then call the NodeEditor() factory
+        //  function - returns an object with a few
+        //  methods.
+        //
+        //  To configure - we pass an object literal that
+        //  specifies the id of the ContentEditable and
+        //  optionally, the id of the raw HTML output.
+        //
             let ed = NodeEditor({
+
             //  Options/cnfiguration
             //
             //  We use the "editor_id" option to specify the
@@ -91,17 +105,17 @@
             //  This option can be omitted if you don't wish
             //  to see the raw HTML.
                 "raw_id": "raw_el"
+
             });
 
 
         ///////////////////////////////////////////////////
         //  Bind the "strip" button click event. This
-        //  should invole the stripHTMLTags() method.
+        //  should invoke the stripHTMLTags() method.
         //
             document.getElementById('strip').addEventListener(
                 "click",
                 function() {
-                    console.log("Stareep");
                     ed.replaceSelectedText();
                 }
             );
@@ -206,6 +220,7 @@
             //  the insertElement() method...
             //
                 var obj = buildInsertObject();
+
                 ed.insertNode(obj);
             }
         )

@@ -1,28 +1,30 @@
 ///////////////////////////////////////////////////////////
 //  app/NodeEditor.js
 //
-
-
-    const   NODEEDITOR_ID = "editor_id";
-    const   NODEEDITOR_RAW = "raw_id";
-
+//  Simple enough - the _NodeEditor object had two classes
+//  of method - private and public.
+//
+//  Public methods are revealed via the object literal that
+//  is returned when the object is created, the private
+//  methods are prefixed with an _ character and are
+//  for internal use so not revealed.
+//
 
     let _NodeEditor = function(options) {
+    //  The "editor_id" and "raw_id" values can be
+    //  specified in options
         this._editor_id = "editor";
         this._raw_id = false;
 
         this._editor_el = false;
         this._raw_el = false;
 
+    //  Every time we select a text range these are
+    //  populated with the appropriate values.
         this._selected_text = "";
         this._selected_html = "";
 
-
-        this._el_list = [];
-        this._el_class = [];
-        this._el_style = [];
-
-
+    //  Old skool!
         let self = this;
 
     
@@ -49,14 +51,12 @@
 
             if (typeof window.getSelection != "undefined") {
                 var sel = window.getSelection();
-                
+ 
                 if (sel.rangeCount) {
                     var container = document.createElement("div");
-                    
                     for (var i = 0, len = sel.rangeCount; i < len; ++i) {
                         container.appendChild(sel.getRangeAt(i).cloneContents());
                     }
-
                     html = container.innerHTML;
                 }
             } 
@@ -88,6 +88,16 @@
         };
 
 
+    ///////////////////////////////////////////////////////
+    //  replaceSelectedText()
+    //
+    //  Replaces the selected innerHTML with the inner
+    //  plain text.
+    //
+    //  This is the method you want to invoke when you
+    //  wish to strip the HTML tags from the selected
+    //  range.
+    //
         let replaceSelectedText = function() {
             var selection, range;
             
@@ -102,6 +112,7 @@
                     range.insertNode(el);
                 }
                 
+            //  Reposition caret.
                 range.setStartAfter(el);
                 range.setEndAfter(el); 
                 selection.removeAllRanges();
@@ -116,6 +127,17 @@
         };
 
         
+    ///////////////////////////////////////////////////////
+    //  insertNode()
+    //
+    //  As the name suggests - method inserts a node, it
+    //  depends on whether there's a selected range or nor.
+    //
+    //  If a range is selected then the selected text is
+    //  wrapped in the new element container. If no text
+    //  is selected then the empty element container is
+    //  inserted at the current caret position.
+    //
         let insertNode = function(options) {
             let selection;
             let range;
@@ -128,6 +150,9 @@
                     html = selection.text;
                     
                 if (selection.getRangeAt && selection.rangeCount) {
+                //  If the "striptags" option is set then the
+                //  selected text is first filtered through the
+                //  stripInnerHTML() method.
                     if (options.striptags)
                         var _html = new String(stripInnerHTML(html));
                     else
@@ -139,6 +164,8 @@
                     range.deleteContents();
 
                     var el = document.createElement(options.tag_name);
+                
+                //  St any class or style attributes.
                     if (typeof(options.class_name) !== "undefined" && options.class_name != "none")
                         el.setAttribute("class", options.class_name);
                     if (typeof(options.style) !== "undefined" && options.style != "none")
@@ -146,6 +173,8 @@
 
                     range.insertNode(el);
                     el.innerHTML = _html;
+
+                //  reposition caret.
                     range.setStartAfter(el);
                     range.setEndAfter(el); 
                     selection.removeAllRanges();
@@ -243,8 +272,8 @@
 
         
         return {
-            "replaceSelectedText":  replaceSelectedText,
-            "insertNode": insertNode
+            "replaceSelectedText":      replaceSelectedText,
+            "insertNode":               insertNode
         };
 
     };
