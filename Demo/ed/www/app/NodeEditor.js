@@ -101,13 +101,13 @@
                     range.deleteContents();
                     range.insertNode(el);
                 }
-            // range.insertNode(this._parent_el);
-            //    el.innerHTML = _html;
+                
                 range.setStartAfter(el);
                 range.setEndAfter(el); 
                 selection.removeAllRanges();
                 selection.addRange(range);
-            } else if (document.selection && document.selection.createRange) {
+            } 
+            else if (document.selection && document.selection.createRange) {
                 range = document.selection.createRange();
                 range.text = replacementText;
             }
@@ -221,9 +221,6 @@
                 self._editor_id = options.editor_id;
             if (options.hasOwnProperty("raw_id"))
                 self._raw_id = options.raw_id;
-
-                console.log("EDITOR_ID = " + self._editor_id);
-                console.log("RAW_ID = " + self._raw_id);
 
         //  Assign the _editor_el - this always points to
         //  the ContentEditable element.
